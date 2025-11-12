@@ -34,7 +34,7 @@ const ProfileCart = () => {
 
   // Handle form input change
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value.trim()});
+    setFormData({ ...formData, [e.target.name]: e.target.value});
   };
 
   // Handle profile update
