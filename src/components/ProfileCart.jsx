@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateProfile } from "../redux/slices/profileSlice";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ProfileCart = () => {
   const { user } = useSelector((state) => state.auth);
   const { profile } = useSelector((state) => state.profile);
   const dispatch = useDispatch();
-//   const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
     name: "",
@@ -41,8 +41,8 @@ const ProfileCart = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateProfile(formData));
-    // navigate("/")
-    window.location.reload();
+    navigate(0)
+    // window.location.reload();
     alert("✅ Profile Updated Successfully!");
   };
 

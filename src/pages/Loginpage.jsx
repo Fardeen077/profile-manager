@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../redux/slices/authSlice";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Loginpage = () => {
     const [formData, setFormData] = useState({
@@ -19,7 +19,11 @@ const Loginpage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const storedUser = JSON.parse(localStorage.getItem("registeredUser"));
+        const storedUser = JSON.parse(localStorage.getItem("user"));
+        console.log("Stored User:", storedUser); // ab null nahi aayega
+
+        // console.log("hay storedUser is pregent", storedUser);
+
 
         if (
             storedUser &&
@@ -28,12 +32,12 @@ const Loginpage = () => {
         ) {
             dispatch(loginSuccess(storedUser));
             alert("✅ Login Successful!");
-            navigate("/profile");
+            navigate("/profile")
         } else {
             alert("❌ Invalid Email or Password");
         }
-    };
 
+    }
     return (
         <div className="container mt-5">
             <div className="card shadow p-4 mx-auto" style={{ maxWidth: "400px" }}>

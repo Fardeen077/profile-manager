@@ -16,7 +16,7 @@ const authSlice = createSlice({
         registerSuccess: (state, action) => {
             state.user = action.payload;
             state.isAuthenticated = true;
-            localStorage.setItem("User", JSON.stringify(action.payload));
+            localStorage.setItem("user", JSON.stringify(action.payload));
         },
         loginSuccess: (state, action) => {
             state.user = action.payload;
@@ -25,6 +25,7 @@ const authSlice = createSlice({
         },
         logout: (state) => {
             state.user = null;
+            state.isAuthenticated = false
         },
     },
 });
