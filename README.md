@@ -17,3 +17,5 @@ This project is a **React + Vite** application built to manage user profiles wit
 - **Bootstrap 5**
 - **React Router DOM**
 
+# LIVE LINK
+https://fardeen077.github.io/profile-manager/
